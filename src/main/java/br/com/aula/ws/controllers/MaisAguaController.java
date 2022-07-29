@@ -1,26 +1,32 @@
 package br.com.aula.ws.controllers;
 
 
+import br.com.aula.ws.dtos.ProblemaDto;
+import br.com.aula.ws.models.ProblemaModel;
+import br.com.aula.ws.services.ProblemaService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/maisAgua")
+@RequestMapping("/Problema")
 public class MaisAguaController {
 
-    @GetMapping
-    public ResponseEntity<Object> metodo1(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    final ProblemaService problemaService;
+
+    public MaisAguaController(ProblemaService problemaService) {
+        this.problemaService = problemaService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> metodo2(){
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    @PostMapping
+    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto){
+        var problemaModel = new ProblemaModel();
+        BeanUtils.copyProperties(problemaDto, problemaModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
 
 }
