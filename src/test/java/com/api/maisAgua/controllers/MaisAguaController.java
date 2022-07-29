@@ -1,9 +1,9 @@
-package br.com.aula.ws.controllers;
+package com.api.maisagua;
 
 
-import br.com.aula.ws.dtos.ProblemaDto;
-import br.com.aula.ws.models.ProblemaModel;
-import br.com.aula.ws.services.ProblemaService;
+import com.api.maisagua.dtos.ProblemaDto;
+import com.api.maisagua.models.ProblemaModel;
+import com.api.maisagua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
