@@ -1,22 +1,22 @@
-package com.api.maisagua.models;
+package com.api.maisAgua.models;
 
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Problema")
+@Table(name = "problema")
 public class ProblemaModel implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private int id;
-   @Column(nullable = false)
+   @Column()
    private String tipo;
-   @Column(nullable = false)
+   @Column()
    private String lat;
-   @Column(nullable = false)
+   @Column()
    private String longi;
-   @Column(nullable = false)
+   @Column()
    private String descricao;
 
     public int getId() {
