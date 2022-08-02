@@ -9,9 +9,17 @@ import java.io.Serializable;
 public class ProblemaModel implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-   private int id;
+   private int id_problema;
+
+   @Column()
+   private String tokenn;
+
+   @Column()
+   private Boolean status;
+
    @Column()
    private String tipo;
+
    @Column()
    private String lat;
    @Column()
@@ -20,11 +28,11 @@ public class ProblemaModel implements Serializable {
    private String descricao;
 
     public int getId() {
-        return id;
+        return id_problema;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_problema = id;
     }
 
     public String getTipo() {
@@ -57,5 +65,21 @@ public class ProblemaModel implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getTokenn() {
+        return tokenn;
+    }
+
+    public void setTokenn(String tokenn) {
+        this.tokenn = tokenn;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

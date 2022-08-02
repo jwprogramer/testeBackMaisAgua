@@ -5,6 +5,11 @@ import javax.validation.constraints.NotBlank;
 public class ProblemaDto {
 
     @NotBlank
+    private String tokenn;
+
+    @NotBlank
+    private Boolean status;
+    @NotBlank
     private String tipo;
     @NotBlank
     private String lat;
@@ -43,5 +48,21 @@ public class ProblemaDto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getTokenn() {
+        return tokenn;
+    }
+
+    public void setTokenn(String tokenn) {
+        this.tokenn = tokenn;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

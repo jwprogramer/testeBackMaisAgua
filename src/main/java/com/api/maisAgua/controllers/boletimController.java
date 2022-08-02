@@ -6,7 +6,6 @@ import com.api.maisAgua.dtos.ProblemaDto;
 import com.api.maisAgua.models.BoletimModel;
 import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.BoletimService;
-import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +28,6 @@ public class boletimController {
 
 
     @PostMapping
-
     public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid BoletimDto boletimDto){
         var boletimModel = new BoletimModel();
         BeanUtils.copyProperties(boletimDto, boletimService);
@@ -38,25 +36,25 @@ public class boletimController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteProblema(@PathVariable(value = "id") UUID id){
-        Optional<ProblemaModel> parkingSpotModelOptional = boletimService.findById(id);
+        Optional<BoletimModel> parkingSpotModelOptional = boletimService.findById(id);
         if (!parkingSpotModelOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Boletim não encontrado.");
         }
         boletimService.delete(parkingSpotModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Problema deletado.");
+        return ResponseEntity.status(HttpStatus.OK).body("Boletim deletado.");
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") UUID id,
                                                     @RequestBody @Valid ProblemaDto problemaDto){
-        Optional<ProblemaModel> problemaModelOptional = boletimService.findById(id);
-        if (!problemaModelOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");
+        Optional<BoletimModel> boletimModelModelOptional = boletimService.findById(id);
+        if (!boletimModelModelOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Boletim não encontrado.");
         }
         var problemaModel = new ProblemaModel();
-        problemaModel.setId(problemaModelOptional.get().getId());
-        BeanUtils.copyProperties(problemaDto, problemaModelOptional);
-        return ResponseEntity.status(HttpStatus.OK).body("Problema atualizado");
+        problemaModel.setId(boletimModelModelOptional.get().getId());
+        BeanUtils.copyProperties(problemaDto, boletimModelModelOptional);
+        return ResponseEntity.status(HttpStatus.OK).body("Boletim atualizado");
     }
 
 }
