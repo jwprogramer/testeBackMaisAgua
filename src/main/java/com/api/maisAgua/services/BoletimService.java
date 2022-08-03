@@ -1,9 +1,7 @@
 package com.api.maisAgua.services;
 
 import com.api.maisAgua.models.BoletimModel;
-import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.repositories.BoletimRepository;
-import com.api.maisAgua.repositories.ProblemaRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

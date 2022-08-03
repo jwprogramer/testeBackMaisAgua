@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name ="tb_comentario")
-public class ComentaModel implements Serializable {
+public class ComentarioModel implements Serializable {
+
     private static final long serialVersionUID = 3L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
-
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "id_problema")

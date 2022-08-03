@@ -5,62 +5,62 @@ import javax.validation.constraints.NotBlank;
 public class ProblemaDto {
 
     @NotBlank
-    private String tokenn;
-    private Boolean status;
+    private String tokenProblema;
+    private Boolean statusProblema;
     @NotBlank
-    private String tipo;
+    private String tipo_problema;
     @NotBlank
-    private String lat;
+    private String latitudeProblema;
     @NotBlank
-    private String longi;
+    private String longitudeProblema;
     @NotBlank
-    private String descricao;
+    private String desc_problema;
 
-    public String getTipo() {
-        return tipo;
+    public String getTipo_problema() {
+        return tipo_problema;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo_problema(String tipo_problema) {
+        this.tipo_problema = tipo_problema;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLatitude() {
+        return latitudeProblema;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLatitude(String latitude) {
+        this.latitudeProblema = latitude;
     }
 
     public String getLongi() {
-        return longi;
+        return longitudeProblema;
     }
 
     public void setLongi(String longi) {
-        this.longi = longi;
+        this.longitudeProblema = longi;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDesc_problema() {
+        return desc_problema;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDesc_problema(String desc_problema) {
+        this.desc_problema = desc_problema;
     }
 
-    public String getTokenn() {
-        return tokenn;
+    public String getTokenProblema() {
+        return tokenProblema;
     }
 
-    public void setTokenn(String tokenn) {
-        this.tokenn = tokenn;
+    public void setTokenProblema(String tokenProblema) {
+        this.tokenProblema = tokenProblema;
     }
 
-    public Boolean getStatus() {
-        return status;
+    public Boolean getStatusProblema() {
+        return statusProblema;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
+    public void setStatusProblema(Boolean statusProblema) {
+        this.statusProblema = statusProblema;
     }
 }

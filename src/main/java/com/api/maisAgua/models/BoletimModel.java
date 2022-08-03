@@ -5,21 +5,21 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "boletim")
+@Table(name = "tb_boletim")
 public class BoletimModel  implements Serializable {
 
     private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column()
-    private String tipo;
-    @Column()
-    private String lat;
-    @Column()
-    private String longi;
-    @Column()
-    private String descricao;
+    @Column(nullable = false)
+    private String tipoProblema_boletim;
+    @Column(nullable = false)
+    private String latitudeBoletim;
+    @Column(nullable = false)
+    private String longitudeBoletim;
+    @Column(nullable = false)
+    private String desc_Boletim;
 
     public int getId() {
         return id;
@@ -29,36 +29,36 @@ public class BoletimModel  implements Serializable {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoProblema_boletim() {
+        return tipoProblema_boletim;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoProblema_boletim(String tipo) {
+        this.tipoProblema_boletim = tipo;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLatitudeBoletim() {
+        return latitudeBoletim;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLatitudeBoletim(String lat) {
+        this.latitudeBoletim = lat;
     }
 
-    public String getLongi() {
-        return longi;
+    public String getLongitudeBoletim() {
+        return longitudeBoletim;
     }
 
-    public void setLongi(String longi) {
-        this.longi = longi;
+    public void setLongitudeBoletim(String longi) {
+        this.longitudeBoletim = longi;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDesc_Boletim() {
+        return desc_Boletim;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDesc_Boletim(String descricao) {
+        this.desc_Boletim = descricao;
     }
 
 }

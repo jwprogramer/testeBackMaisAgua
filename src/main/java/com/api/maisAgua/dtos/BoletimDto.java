@@ -5,43 +5,43 @@ import javax.validation.constraints.NotBlank;
 public class BoletimDto {
 
     @NotBlank
-    private String tipo;
+    private String tipoProblema_boletim;
     @NotBlank
-    private String lat;
+    private String latitudeBoletim;
     @NotBlank
-    private String longi;
+    private String longitudeBoletim;
     @NotBlank
-    private String descricao;
+    private String desc_boletim;
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoProblema_boletim() {
+        return tipoProblema_boletim;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoProblema_boletim(String tipoProblema_boletim) {
+        this.tipoProblema_boletim = tipoProblema_boletim;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLatitudeBoletim() {
+        return latitudeBoletim;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLatitudeBoletim(String latitudeBoletim) {
+        this.latitudeBoletim = latitudeBoletim;
     }
 
-    public String getLongi() {
-        return longi;
+    public String getLongitudeBoletim() {
+        return longitudeBoletim;
     }
 
-    public void setLongi(String longi) {
-        this.longi = longi;
+    public void setLongitudeBoletim(String longitudeBoletim) {
+        this.longitudeBoletim = longitudeBoletim;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDesc_boletim() {
+        return desc_boletim;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDesc_boletim(String desc_boletim) {
+        this.desc_boletim = desc_boletim;
     }
 }

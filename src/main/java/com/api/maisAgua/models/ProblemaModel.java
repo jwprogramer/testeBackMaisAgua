@@ -16,25 +16,26 @@ public class ProblemaModel implements Serializable {
    private int id_problema;
 
    @Column(nullable = false)
-   private String tokenn;
+   private String tokenProblema;
 
    @Column(nullable = false)
-   private Boolean status;
+   private Boolean statusProblema;
 
    @Column(nullable = false)
-   private String tipo;
+   private String tipoProblema;
 
    @Column(nullable = false)
-   private String lat;
+   private String latitudeProblema;
 
    @Column(nullable = false)
-   private String longi;
+   private String longitudeProblema;
 
    @Column(nullable = false)
-   private String descricao;
+   private String desc_problema;
 
    @OneToMany()
    @JoinColumn(name = "id_comentario")
+   @JoinColumn(name = "id_foto")
    @Column(nullable = true)
    private List<ProblemaModel> listaProblemas;
 
@@ -46,51 +47,51 @@ public class ProblemaModel implements Serializable {
         this.id_problema = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getTipoProblema() {
+        return tipoProblema;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoProblema(String tipo) {
+        this.tipoProblema = tipo;
     }
 
-    public String getLat() {
-        return lat;
+    public String getLatitudeProblema() {
+        return latitudeProblema;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setLatitudeProblema(String lat) {
+        this.latitudeProblema = lat;
     }
 
-    public String getLongi() {
-        return longi;
+    public String getLongitudeProblema() {
+        return longitudeProblema;
     }
 
-    public void setLongi(String longi) {
-        this.longi = longi;
+    public void setLongitudeProblema(String longi) {
+        this.longitudeProblema = longi;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDesc_problema() {
+        return desc_problema;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDesc_problema(String descricao) {
+        this.desc_problema = descricao;
     }
 
-    public String getTokenn() {
-        return tokenn;
+    public String getTokenProblema() {
+        return tokenProblema;
     }
 
-    public void setTokenn(String tokenn) {
-        this.tokenn = tokenn;
+    public void setTokenProblema(String tokenn) {
+        this.tokenProblema = tokenn;
     }
 
-    public Boolean getStatus() {
-        return status;
+    public Boolean getStatusProblema() {
+        return statusProblema;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
+    public void setStatusProblema(Boolean status) {
+        this.statusProblema = status;
     }
 }
