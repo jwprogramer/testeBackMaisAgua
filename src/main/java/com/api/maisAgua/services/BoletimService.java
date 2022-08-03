@@ -23,7 +23,7 @@ public class BoletimService {
     }
 
     @Transactional
-    public Optional<BoletimModel> findById(UUID id) {
+    public Optional<BoletimModel> findById(Long id) {
         return boletimRepository.findById(id);
     }
 

@@ -10,11 +10,16 @@ public class ComentarioModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
+
+    @Column(nullable = false)
+    private String textoComentario;
+
+    @Column(nullable = false)
+    private String tokenComentario;
 
     @ManyToOne
-    @JoinColumn(name = "id_problema")
-    @Column(nullable = false)
+    @JoinColumn(name = "id_problema", nullable = false)
     private ProblemaModel problemaModel;
 
     public ProblemaModel getProblemaModel() {

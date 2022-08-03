@@ -35,7 +35,7 @@ public class boletimController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteProblema(@PathVariable(value = "id") UUID id){
+    public ResponseEntity<Object> deleteProblema(@PathVariable(value = "id") Long id){
         Optional<BoletimModel> parkingSpotModelOptional = boletimService.findById(id);
         if (!parkingSpotModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Boletim não encontrado.");
@@ -45,15 +45,15 @@ public class boletimController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") UUID id,
-                                                    @RequestBody @Valid ProblemaDto problemaDto){
+    public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") Long id,
+                                                    @RequestBody @Valid BoletimDto boletimDto){
         Optional<BoletimModel> boletimModelModelOptional = boletimService.findById(id);
         if (!boletimModelModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Boletim não encontrado.");
         }
-        var problemaModel = new ProblemaModel();
-        problemaModel.setId(boletimModelModelOptional.get().getId());
-        BeanUtils.copyProperties(problemaDto, boletimModelModelOptional);
+        var boletimModel = new BoletimModel();
+        boletimModel.setId_boletim(boletimModelModelOptional.get().getId_boletim());
+        BeanUtils.copyProperties(boletimDto, boletimModelModelOptional);
         return ResponseEntity.status(HttpStatus.OK).body("Boletim atualizado");
     }
 

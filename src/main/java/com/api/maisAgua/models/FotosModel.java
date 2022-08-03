@@ -16,8 +16,7 @@ public class FotosModel implements Serializable {
     private String foto;
 
     @ManyToOne
-    @JoinColumn(name = "id_problema")
-    @Column(nullable = false)
+    @JoinColumn(name = "id_problema", nullable = false)
     private ProblemaModel problemaModel;
 
     public Long getId() {

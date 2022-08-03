@@ -13,7 +13,7 @@ public class ProblemaModel implements Serializable {
 
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-   private int id_problema;
+   private Long id_problema;
 
    @Column(nullable = false)
    private String tokenProblema;
@@ -34,19 +34,20 @@ public class ProblemaModel implements Serializable {
    private String desc_problema;
 
    @OneToMany()
-   @JoinColumn(name = "id_comentario")
-   @JoinColumn(name = "id_foto")
-   @Column(nullable = true)
-   private List<ProblemaModel> listaProblemas;
+   @JoinColumn(name = "id_comentario", nullable = false)
+   private List<ComentarioModel>listaComentarios;
 
-    public int getId() {
+   @OneToMany()
+   @JoinColumn(name = "id_foto", nullable = true)
+   private List<FotosModel> listaFotos;
+
+    public Long getId_problema() {
         return id_problema;
     }
 
-    public void setId(int id) {
-        this.id_problema = id;
+    public void setId_problema(Long id_problema) {
+        this.id_problema = id_problema;
     }
-
     public String getTipoProblema() {
         return tipoProblema;
     }

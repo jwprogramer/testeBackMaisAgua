@@ -9,9 +9,10 @@ import java.io.Serializable;
 public class BoletimModel  implements Serializable {
 
     private static final long serialVersionUID = 2L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id_boletim;
     @Column(nullable = false)
     private String tipoProblema_boletim;
     @Column(nullable = false)
@@ -21,14 +22,13 @@ public class BoletimModel  implements Serializable {
     @Column(nullable = false)
     private String desc_Boletim;
 
-    public int getId() {
-        return id;
+    public Long getId_boletim() {
+        return id_boletim;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_boletim(Long id) {
+        this.id_boletim = id;
     }
-
     public String getTipoProblema_boletim() {
         return tipoProblema_boletim;
     }
