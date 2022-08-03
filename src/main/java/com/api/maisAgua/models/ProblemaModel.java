@@ -3,29 +3,40 @@ package com.api.maisAgua.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "problema")
+@Table(name = "tb_problema")
 public class ProblemaModel implements Serializable {
+
+   private static final long serialVersionUID = 1L;
+
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private int id_problema;
 
-   @Column()
+   @Column(nullable = false)
    private String tokenn;
 
-   @Column()
+   @Column(nullable = false)
    private Boolean status;
 
-   @Column()
+   @Column(nullable = false)
    private String tipo;
 
-   @Column()
+   @Column(nullable = false)
    private String lat;
-   @Column()
+
+   @Column(nullable = false)
    private String longi;
-   @Column()
+
+   @Column(nullable = false)
    private String descricao;
+
+   @OneToMany()
+   @JoinColumn(name = "id_comentario")
+   @Column(nullable = true)
+   private List<ProblemaModel> listaProblemas;
 
     public int getId() {
         return id_problema;

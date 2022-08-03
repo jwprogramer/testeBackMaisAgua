@@ -6,8 +6,6 @@ public class ProblemaDto {
 
     @NotBlank
     private String tokenn;
-
-    @NotBlank
     private Boolean status;
     @NotBlank
     private String tipo;

@@ -16,11 +16,11 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/problema")
-public class maisAguaController {
+public class problemaController {
 
    final ProblemaService problemaService;
 
-    public maisAguaController(ProblemaService problemaService) {
+    public problemaController(ProblemaService problemaService) {
         this.problemaService = problemaService;
     }
 

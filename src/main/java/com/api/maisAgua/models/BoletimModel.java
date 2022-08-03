@@ -7,6 +7,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "boletim")
 public class BoletimModel  implements Serializable {
+
+    private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
