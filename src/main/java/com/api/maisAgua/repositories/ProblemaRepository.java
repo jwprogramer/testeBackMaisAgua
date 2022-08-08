@@ -11,9 +11,8 @@ import java.util.UUID;
 import java.util.function.Function;
 
 @Repository
-public interface ProblemaRepository extends JpaRepository<ProblemaModel, Id> {
+public interface ProblemaRepository extends JpaRepository<ProblemaModel, Long> {
 
     boolean existsByTipo(String tipo);
 
-    Optional<ProblemaModel> findById(Long id);
 }

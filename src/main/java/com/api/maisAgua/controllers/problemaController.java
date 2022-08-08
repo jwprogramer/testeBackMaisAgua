@@ -5,6 +5,7 @@ import com.api.maisAgua.dtos.ProblemaDto;
 import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -15,15 +16,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
-import java.util.UUID;
+
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/problema")
 public class problemaController {
 
-   final ProblemaService problemaService;
-
+    private final ProblemaService problemaService;
+    @Autowired
     public problemaController(ProblemaService problemaService) {
         this.problemaService = problemaService;
     }
@@ -43,11 +44,11 @@ public class problemaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> buscarProblema(@PathVariable(value = "id") Long id){
-        Optional<ProblemaModel> parkingSpotModelOptional = problemaService.findById(id);
-        if (!parkingSpotModelOptional.isPresent()) {
+        Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);
+        if (!problemaModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(problemaModelOptional.get());
     }
 
     @DeleteMapping("/{id}")

@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface ComentarioRepository extends JpaRepository<ComentarioModel, Id> {
+public interface ComentarioRepository extends JpaRepository<ComentarioModel, Long> {
 }
