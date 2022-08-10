@@ -1,11 +1,11 @@
 package com.api.maisAgua.repositories;
 
-import com.api.maisAgua.models.boletimModel;
+import com.api.maisAgua.models.BoletimModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface boletimRepository extends JpaRepository<boletimModel, Long> {
+public interface BoletimRepository extends JpaRepository<BoletimModel, Long> {
 
 }
 

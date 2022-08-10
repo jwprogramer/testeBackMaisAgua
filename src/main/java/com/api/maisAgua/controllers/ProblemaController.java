@@ -1,11 +1,10 @@
 package com.api.maisAgua.controllers;
 
 
-import com.api.maisAgua.dtos.problemaDto;
+import com.api.maisAgua.dtos.PoblemaDto;
 import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -31,7 +30,7 @@ public class ProblemaController {
 
 
     @PostMapping
-    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid problemaDto problemaDto){
+    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid PoblemaDto problemaDto){
         var problemaModel = new ProblemaModel();
         BeanUtils.copyProperties(problemaDto, problemaModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
@@ -63,7 +62,7 @@ public class ProblemaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") Long id,
-                                                    @RequestBody @Valid problemaDto problemaDto){
+                                                    @RequestBody @Valid PoblemaDto problemaDto){
         Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);
         if (!problemaModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");

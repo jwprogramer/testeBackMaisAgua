@@ -35,11 +35,11 @@ public class ProblemaModel implements Serializable {
 
    @OneToMany()
    @JoinColumn(name = "id_comentario", nullable = false)
-   private List<comentarioModel>listaComentarios;
+   private List<ComentarioModel>listaComentarios;
 
    @OneToMany()
    @JoinColumn(name = "id_foto", nullable = true)
-   private List<fotosModel> listaFotos;
+   private List<FotosModel> listaFotos;
 
     public Long getId_problema() {
         return id_problema;

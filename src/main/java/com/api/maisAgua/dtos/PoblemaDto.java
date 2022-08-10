@@ -2,7 +2,7 @@ package com.api.maisAgua.dtos;
 
 import javax.validation.constraints.NotBlank;
 
-public class problemaDto {
+public class PoblemaDto {
 
     @NotBlank
     private String tokenProblema;
