@@ -1,34 +1,32 @@
 package com.api.maisAgua.services;
 
-import com.api.maisAgua.models.BoletimModel;
-import com.api.maisAgua.repositories.BoletimRepository;
+import com.api.maisAgua.models.boletimModel;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
-public class BoletimService {
+public class boletimService {
 
-    final BoletimRepository boletimRepository;
+    final com.api.maisAgua.repositories.boletimRepository boletimRepository;
 
-    public BoletimService(BoletimRepository boletimRepository) {
+    public boletimService(com.api.maisAgua.repositories.boletimRepository boletimRepository) {
         this.boletimRepository = boletimRepository;
     }
 
     @Transactional
-    public BoletimModel save(BoletimModel boletimModel) {
+    public boletimModel save(boletimModel boletimModel) {
         return boletimRepository.save(boletimModel);
     }
 
     @Transactional
-    public Optional<BoletimModel> findById(Long id) {
+    public Optional<boletimModel> findById(Long id) {
         return boletimRepository.findById(id);
     }
 
     @Transactional
-    public void delete(BoletimModel boletimModel) {
+    public void delete(boletimModel boletimModel) {
         boletimRepository.delete(boletimModel);
     }
 }

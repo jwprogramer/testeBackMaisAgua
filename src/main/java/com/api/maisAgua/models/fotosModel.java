@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name ="tb_fotos")
-public class FotosModel implements Serializable {
+public class fotosModel implements Serializable {
 
     private static final long serialVersionUID = 4L;
     @Id

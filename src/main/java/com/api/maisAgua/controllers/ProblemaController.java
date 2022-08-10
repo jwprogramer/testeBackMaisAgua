@@ -1,7 +1,7 @@
 package com.api.maisAgua.controllers;
 
 
-import com.api.maisAgua.dtos.ProblemaDto;
+import com.api.maisAgua.dtos.problemaDto;
 import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
@@ -21,17 +21,17 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/problema")
-public class problemaController {
+public class ProblemaController {
 
-    private final ProblemaService problemaService;
-    @Autowired
-    public problemaController(ProblemaService problemaService) {
+    final ProblemaService problemaService;
+
+    public ProblemaController(ProblemaService problemaService) {
         this.problemaService = problemaService;
     }
 
 
     @PostMapping
-    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto){
+    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid problemaDto problemaDto){
         var problemaModel = new ProblemaModel();
         BeanUtils.copyProperties(problemaDto, problemaModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
@@ -63,7 +63,7 @@ public class problemaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") Long id,
-                                                    @RequestBody @Valid ProblemaDto problemaDto){
+                                                    @RequestBody @Valid problemaDto problemaDto){
         Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);
         if (!problemaModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");

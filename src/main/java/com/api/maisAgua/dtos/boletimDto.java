@@ -2,7 +2,7 @@ package com.api.maisAgua.dtos;
 
 import javax.validation.constraints.NotBlank;
 
-public class BoletimDto {
+public class boletimDto {
 
     @NotBlank
     private String tipoProblema_boletim;

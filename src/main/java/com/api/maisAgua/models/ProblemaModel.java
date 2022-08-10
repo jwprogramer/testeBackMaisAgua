@@ -35,11 +35,11 @@ public class ProblemaModel implements Serializable {
 
    @OneToMany()
    @JoinColumn(name = "id_comentario", nullable = false)
-   private List<ComentarioModel>listaComentarios;
+   private List<comentarioModel>listaComentarios;
 
    @OneToMany()
    @JoinColumn(name = "id_foto", nullable = true)
-   private List<FotosModel> listaFotos;
+   private List<fotosModel> listaFotos;
 
     public Long getId_problema() {
         return id_problema;
@@ -52,8 +52,8 @@ public class ProblemaModel implements Serializable {
         return tipoProblema;
     }
 
-    public void setTipoProblema(String tipo) {
-        this.tipoProblema = tipo;
+    public void setTipoProblema(String tipoProblema) {
+        this.tipoProblema = tipoProblema;
     }
 
     public String getLatitudeProblema() {
