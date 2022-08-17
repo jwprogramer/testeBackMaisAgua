@@ -5,14 +5,14 @@ import javax.validation.constraints.NotBlank;
 public class PoblemaDto {
 
     @NotBlank
-    private String tokenProblema;
-    private Boolean statusProblema;
+    private String token_problema;
+    private Boolean status_problema;
     @NotBlank
     private String tipo_problema;
     @NotBlank
-    private String latitudeProblema;
+    private String latitude_problema;
     @NotBlank
-    private String longitudeProblema;
+    private String longitude_problema;
     @NotBlank
     private String desc_problema;
 
@@ -25,19 +25,19 @@ public class PoblemaDto {
     }
 
     public String getLatitude() {
-        return latitudeProblema;
+        return latitude_problema;
     }
 
     public void setLatitude(String latitude) {
-        this.latitudeProblema = latitude;
+        this.latitude_problema = latitude;
     }
 
     public String getLongi() {
-        return longitudeProblema;
+        return longitude_problema;
     }
 
     public void setLongi(String longi) {
-        this.longitudeProblema = longi;
+        this.longitude_problema = longi;
     }
 
     public String getDesc_problema() {
@@ -48,19 +48,19 @@ public class PoblemaDto {
         this.desc_problema = desc_problema;
     }
 
-    public String getTokenProblema() {
-        return tokenProblema;
+    public String getToken_problema() {
+        return token_problema;
     }
 
-    public void setTokenProblema(String tokenProblema) {
-        this.tokenProblema = tokenProblema;
+    public void setToken_problema(String token_problema) {
+        this.token_problema = token_problema;
     }
 
-    public Boolean getStatusProblema() {
-        return statusProblema;
+    public Boolean getStatus_problema() {
+        return status_problema;
     }
 
-    public void setStatusProblema(Boolean statusProblema) {
-        this.statusProblema = statusProblema;
+    public void setStatus_problema(Boolean status_problema) {
+        this.status_problema = status_problema;
     }
 }

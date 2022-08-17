@@ -16,19 +16,19 @@ public class ProblemaModel implements Serializable {
    private Long id_problema;
 
    @Column(nullable = false)
-   private String tokenProblema;
+   private String token_problema;
 
    @Column(nullable = false)
-   private Boolean statusProblema;
+   private Boolean status_problema;
 
    @Column(nullable = false)
-   private String tipoProblema;
+   private String tipo_problema;
 
    @Column(nullable = false)
-   private String latitudeProblema;
+   private String latitude_problema;
 
    @Column(nullable = false)
-   private String longitudeProblema;
+   private String longitude_problema;
 
    @Column(nullable = false)
    private String desc_problema;
@@ -48,28 +48,28 @@ public class ProblemaModel implements Serializable {
     public void setId_problema(Long id_problema) {
         this.id_problema = id_problema;
     }
-    public String getTipoProblema() {
-        return tipoProblema;
+    public String getTipo_problema() {
+        return tipo_problema;
     }
 
-    public void setTipoProblema(String tipoProblema) {
-        this.tipoProblema = tipoProblema;
+    public void setTipo_problema(String tipoProblema) {
+        this.tipo_problema = tipoProblema;
     }
 
-    public String getLatitudeProblema() {
-        return latitudeProblema;
+    public String getLatitude_problema() {
+        return latitude_problema;
     }
 
-    public void setLatitudeProblema(String lat) {
-        this.latitudeProblema = lat;
+    public void setLatitude_problema(String lat) {
+        this.latitude_problema = lat;
     }
 
-    public String getLongitudeProblema() {
-        return longitudeProblema;
+    public String getLongitude_problema() {
+        return longitude_problema;
     }
 
-    public void setLongitudeProblema(String longi) {
-        this.longitudeProblema = longi;
+    public void setLongitude_problema(String longi) {
+        this.longitude_problema = longi;
     }
 
     public String getDesc_problema() {
@@ -80,19 +80,19 @@ public class ProblemaModel implements Serializable {
         this.desc_problema = descricao;
     }
 
-    public String getTokenProblema() {
-        return tokenProblema;
+    public String getToken_problema() {
+        return token_problema;
     }
 
-    public void setTokenProblema(String tokenn) {
-        this.tokenProblema = tokenn;
+    public void setToken_problema(String tokenn) {
+        this.token_problema = tokenn;
     }
 
-    public Boolean getStatusProblema() {
-        return statusProblema;
+    public Boolean getStatus_problema() {
+        return status_problema;
     }
 
-    public void setStatusProblema(Boolean status) {
-        this.statusProblema = status;
+    public void setStatus_problema(Boolean status) {
+        this.status_problema = status;
     }
 }
