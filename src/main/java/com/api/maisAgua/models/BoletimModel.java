@@ -16,11 +16,11 @@ public class BoletimModel implements Serializable {
     @Column(nullable = false)
     private String tipoProblema_boletim;
     @Column(nullable = false)
-    private String latitudeBoletim;
+    private int latitude_boletim;
     @Column(nullable = false)
-    private String longitudeBoletim;
+    private int longitude_boletim;
     @Column(nullable = false)
-    private String desc_Boletim;
+    private String desc_boletim;
 
     public Long getId_boletim() {
         return id_boletim;
@@ -37,28 +37,27 @@ public class BoletimModel implements Serializable {
         this.tipoProblema_boletim = tipo;
     }
 
-    public String getLatitudeBoletim() {
-        return latitudeBoletim;
+    public int getLatitude_boletim() {
+        return latitude_boletim;
     }
 
-    public void setLatitudeBoletim(String lat) {
-        this.latitudeBoletim = lat;
+    public void setLatitude_boletim(int latitude_boletim) {
+        this.latitude_boletim = latitude_boletim;
     }
 
-    public String getLongitudeBoletim() {
-        return longitudeBoletim;
+    public int getLongitude_boletim() {
+        return longitude_boletim;
     }
 
-    public void setLongitudeBoletim(String longi) {
-        this.longitudeBoletim = longi;
+    public void setLongitude_boletim(int longitude_boletim) {
+        this.longitude_boletim = longitude_boletim;
+    }
+    public String getDesc_boletim() {
+        return desc_boletim;
     }
 
-    public String getDesc_Boletim() {
-        return desc_Boletim;
-    }
-
-    public void setDesc_Boletim(String descricao) {
-        this.desc_Boletim = descricao;
+    public void setDesc_boletim(String descricao) {
+        this.desc_boletim = descricao;
     }
 
 }

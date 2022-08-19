@@ -2,10 +2,11 @@ package com.api.maisAgua.dtos;
 
 import javax.validation.constraints.NotBlank;
 
-public class PoblemaDto {
+public class ProblemaDto {
 
     @NotBlank
     private String token_problema;
+    @NotBlank
     private Boolean status_problema;
     @NotBlank
     private String tipo_problema;

@@ -1,10 +1,12 @@
 package com.api.maisAgua.services;
 
 import com.api.maisAgua.models.BoletimModel;
+import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.repositories.BoletimRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,4 +32,9 @@ public class BoletimService {
     public void delete(BoletimModel boletimModel) {
         boletimRepository.delete(boletimModel);
     }
+
+    public List<BoletimModel> findAll( ) {
+        return boletimRepository.findAll();
+    }
+
 }

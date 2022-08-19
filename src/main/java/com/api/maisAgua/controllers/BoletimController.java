@@ -3,6 +3,7 @@ package com.api.maisAgua.controllers;
 
 import com.api.maisAgua.dtos.BoletimDto;
 import com.api.maisAgua.models.BoletimModel;
+import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.BoletimService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,14 +28,14 @@ public class BoletimController {
 
 
     @PostMapping
-    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid BoletimDto boletimDto){
+    public ResponseEntity<Object> cadastrarBoletim(@RequestBody @Valid BoletimDto boletimDto){
         var boletimModel = new BoletimModel();
-        BeanUtils.copyProperties(boletimDto, boletimService);
+        BeanUtils.copyProperties(boletimDto, boletimModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(boletimService.save(boletimModel));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteProblema(@PathVariable(value = "id") Long id){
+    public ResponseEntity<Object> deleteBoletim(@PathVariable(value = "id") Long id){
         Optional<BoletimModel> BoletimModelOptional = boletimService.findById(id);
         if (!BoletimModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Boletim não encontrado.");
@@ -42,8 +44,13 @@ public class BoletimController {
         return ResponseEntity.status(HttpStatus.OK).body("Boletim deletado.");
     }
 
+    @GetMapping
+    public ResponseEntity<List<BoletimModel>> listarBoletim(){
+        return ResponseEntity.status(HttpStatus.OK).body(boletimService.findAll());
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") Long id,
+    public ResponseEntity<Object> atualizarBoletim(@PathVariable(value = "id") Long id,
                                                     @RequestBody @Valid BoletimDto boletimDto){
         Optional<BoletimModel> boletimModelOptional = boletimService.findById(id);
         if (!boletimModelOptional.isPresent()) {
