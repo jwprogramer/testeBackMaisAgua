@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,7 +35,9 @@ public class ProblemaService {
         problemaRepository.delete(problemaModel);
     }
     @Transactional
-    public Page<ProblemaModel> findAll(Pageable pageable) {
-        return problemaRepository.findAll(pageable);
+    //public Page<ProblemaModel> findAll(Pageable pageable) { return problemaRepository.findAll(pageable); }
+
+    public List<ProblemaModel> findAll( ) {
+        return problemaRepository.findAll();
     }
 }

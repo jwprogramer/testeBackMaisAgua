@@ -95,4 +95,5 @@ public class ProblemaModel implements Serializable {
     public void setStatus_problema(Boolean status) {
         this.status_problema = status;
     }
+
 }

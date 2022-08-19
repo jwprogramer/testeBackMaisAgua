@@ -24,21 +24,6 @@ public class PoblemaDto {
         this.tipo_problema = tipo_problema;
     }
 
-    public String getLatitude() {
-        return latitude_problema;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude_problema = latitude;
-    }
-
-    public String getLongi() {
-        return longitude_problema;
-    }
-
-    public void setLongi(String longi) {
-        this.longitude_problema = longi;
-    }
 
     public String getDesc_problema() {
         return desc_problema;
@@ -62,5 +47,22 @@ public class PoblemaDto {
 
     public void setStatus_problema(Boolean status_problema) {
         this.status_problema = status_problema;
+    }
+
+
+    public String getLatitude_problema() {
+        return latitude_problema;
+    }
+
+    public void setLatitude_problema(String latitude_problema) {
+        this.latitude_problema = latitude_problema;
+    }
+
+    public String getLongitude_problema() {
+        return longitude_problema;
+    }
+
+    public void setLongitude_problema(String longitude_problema) {
+        this.longitude_problema = longitude_problema;
     }
 }

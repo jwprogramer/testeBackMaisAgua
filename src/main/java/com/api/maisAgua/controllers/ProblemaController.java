@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -37,8 +38,9 @@ public class ProblemaController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProblemaModel>> listarProblemas(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(problemaService.findAll(pageable));
+    //public ResponseEntity<Page<ProblemaModel>> listarProblemas(@PageableDefault(page = 0, size = 10, sort = "id_problema", direction = Sort.Direction.ASC) Pageable pageable){
+    public ResponseEntity<List<ProblemaModel>> listarProblemas(){
+    return ResponseEntity.status(HttpStatus.OK).body(problemaService.findAll());
     }
 
     @GetMapping("/{id}")
