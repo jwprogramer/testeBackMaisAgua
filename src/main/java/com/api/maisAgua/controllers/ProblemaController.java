@@ -2,8 +2,10 @@ package com.api.maisAgua.controllers;
 
 
 import com.api.maisAgua.dtos.ProblemaDto;
+import com.api.maisAgua.models.ComentarioModel;
 import com.api.maisAgua.models.FotosModel;
 import com.api.maisAgua.models.ProblemaModel;
+import com.api.maisAgua.services.ComentarioService;
 import com.api.maisAgua.services.FotosService;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
@@ -25,9 +27,12 @@ public class ProblemaController {
     final ProblemaService problemaService;
     final FotosService fotosService;
 
-    public ProblemaController(ProblemaService problemaService, FotosService fotosService) {
+    final ComentarioService comentarioService;
+
+    public ProblemaController(ProblemaService problemaService, FotosService fotosService, ComentarioService comentarioService) {
         this.problemaService = problemaService;
         this.fotosService = fotosService;
+        this.comentarioService = comentarioService;
     }
 
 
@@ -38,6 +43,13 @@ public class ProblemaController {
         //fotosService.savePhoto(fotosModel,fotos.getContentType());
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
+
+    @PostMapping("/comentario")
+    public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioModel comentarioModel){
+        return ResponseEntity.status(HttpStatus.CREATED).body(comentarioService.save(comentarioModel));
+    }
+
+
 
     @GetMapping
     public ResponseEntity<List<ProblemaModel>> listarProblemas(){
