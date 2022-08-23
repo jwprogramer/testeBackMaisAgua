@@ -9,21 +9,30 @@ public class FotosModel implements Serializable {
     private static final long serialVersionUID = 4L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "id_foto", nullable = false)
+    private Long id_foto;
 
     @Column(nullable = false)
-    private String foto;
+    private Byte foto;
 
     @ManyToOne
     @JoinColumn(name = "id_problema", nullable = false)
     private ProblemaModel problemaModel;
 
-    public Long getId() {
-        return id;
+    public Long getId_foto() {
+        return id_foto;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_foto(Long id_foto) {
+        this.id_foto = id_foto;
     }
+
+    public Byte getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Byte foto) {
+        this.foto = foto;
+    }
+
 }

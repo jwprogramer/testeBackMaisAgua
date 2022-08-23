@@ -1,12 +1,13 @@
 package com.api.maisAgua.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ProblemaDto {
 
     @NotBlank
     private String token_problema;
-    @NotBlank
+    @NotNull(message = "Por favor, insira o Status")
     private Boolean status_problema;
     @NotBlank
     private String tipo_problema;

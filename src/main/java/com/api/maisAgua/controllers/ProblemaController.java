@@ -2,12 +2,15 @@ package com.api.maisAgua.controllers;
 
 
 import com.api.maisAgua.dtos.ProblemaDto;
+import com.api.maisAgua.models.FotosModel;
 import com.api.maisAgua.models.ProblemaModel;
+import com.api.maisAgua.services.FotosService;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -20,16 +23,19 @@ import java.util.Optional;
 public class ProblemaController {
 
     final ProblemaService problemaService;
+    final FotosService fotosService;
 
-    public ProblemaController(ProblemaService problemaService) {
+    public ProblemaController(ProblemaService problemaService, FotosService fotosService) {
         this.problemaService = problemaService;
+        this.fotosService = fotosService;
     }
 
 
     @PostMapping
-    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto){
+    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto, @ModelAttribute FotosModel fotosModel, MultipartFile fotos){
         var problemaModel = new ProblemaModel();
         BeanUtils.copyProperties(problemaDto, problemaModel);
+        //fotosService.savePhoto(fotosModel,fotos.getContentType());
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
 
@@ -67,7 +73,7 @@ public class ProblemaController {
         var problemaModel = new ProblemaModel();
         problemaModel.setId_problema(problemaModelOptional.get().getId_problema());
         BeanUtils.copyProperties(problemaDto, problemaModelOptional);
-        return ResponseEntity.status(HttpStatus.OK).body("Problema atualizado");
+        return ResponseEntity.status(HttpStatus.OK).body("Problema atualizado.");
     }
 
 }
