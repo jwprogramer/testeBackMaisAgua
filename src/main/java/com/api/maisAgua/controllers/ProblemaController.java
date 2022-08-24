@@ -1,6 +1,7 @@
 package com.api.maisAgua.controllers;
 
 
+import com.api.maisAgua.dtos.ComentarioDto;
 import com.api.maisAgua.dtos.ProblemaDto;
 import com.api.maisAgua.models.ComentarioModel;
 import com.api.maisAgua.models.FotosModel;
@@ -45,10 +46,17 @@ public class ProblemaController {
     }
 
     @PostMapping("/comentario")
-    public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioModel comentarioModel){
+    public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioDto comentarioDTO){
+        var comentarioModel = new ComentarioModel();
+        BeanUtils.copyProperties(comentarioDTO, comentarioModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(comentarioService.save(comentarioModel));
     }
-
+    @DeleteMapping("/comentario/{id}")
+    public ResponseEntity<Object> deleteComentario(@PathVariable(value = "id") Long id){
+        Optional<ComentarioModel> ComentModelOptional = comentarioService.findById(id);
+        comentarioService.delete(ComentModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Comentario deletado.");
+    }
 
 
     @GetMapping
@@ -84,8 +92,8 @@ public class ProblemaController {
         }
         var problemaModel = new ProblemaModel();
         problemaModel.setId_problema(problemaModelOptional.get().getId_problema());
-        BeanUtils.copyProperties(problemaDto, problemaModelOptional);
-        return ResponseEntity.status(HttpStatus.OK).body("Problema atualizado.");
+        BeanUtils.copyProperties(problemaDto, problemaModel);
+        return ResponseEntity.status(HttpStatus.OK).body(problemaService.save(problemaModel));
     }
 
 }

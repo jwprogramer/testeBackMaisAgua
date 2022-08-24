@@ -23,6 +23,8 @@ public class ComentarioModel implements Serializable {
     @JoinColumn(name = "id_problema", nullable = false)
     private ProblemaModel problemaModel;
 
+    public ComentarioModel();
+
     public Long getId() {
         return id;
     }

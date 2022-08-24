@@ -1,5 +1,6 @@
 package com.api.maisAgua.services;
 
+import com.api.maisAgua.models.ComentarioModel;
 import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.repositories.ProblemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,4 +41,5 @@ public class ProblemaService {
     public List<ProblemaModel> findAll( ) {
         return problemaRepository.findAll();
     }
+
 }
