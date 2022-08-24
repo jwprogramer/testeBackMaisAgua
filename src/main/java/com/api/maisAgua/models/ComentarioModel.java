@@ -19,11 +19,20 @@ public class ComentarioModel implements Serializable {
     @Column(nullable = false)
     private String token_comentario;
 
-    @ManyToOne
-    @JoinColumn(name = "id_problema", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "problema_id", nullable = false)
     private ProblemaModel problemaModel;
 
-    public ComentarioModel();
+    public ComentarioModel() {
+    }
+
+    public ProblemaModel getProblemaModel() {
+        return problemaModel;
+    }
+
+    public void setProblemaModel(ProblemaModel problemaModel) {
+        this.problemaModel = problemaModel;
+    }
 
     public Long getId() {
         return id;

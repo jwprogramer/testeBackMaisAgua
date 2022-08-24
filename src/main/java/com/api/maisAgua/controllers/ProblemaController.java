@@ -27,7 +27,6 @@ public class ProblemaController {
 
     final ProblemaService problemaService;
     final FotosService fotosService;
-
     final ComentarioService comentarioService;
 
     public ProblemaController(ProblemaService problemaService, FotosService fotosService, ComentarioService comentarioService) {
@@ -45,19 +44,23 @@ public class ProblemaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
 
-    @PostMapping("/comentario")
-    public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioDto comentarioDTO){
+    @PostMapping("{id}/comentario")
+    public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioDto comentarioDto, @PathVariable(value = "id") Long id){
         var comentarioModel = new ComentarioModel();
-        BeanUtils.copyProperties(comentarioDTO, comentarioModel);
+        BeanUtils.copyProperties(comentarioDto, comentarioModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(comentarioService.save(comentarioModel));
     }
-    @DeleteMapping("/comentario/{id}")
-    public ResponseEntity<Object> deleteComentario(@PathVariable(value = "id") Long id){
+    @DeleteMapping("{id}/comentario/{id_comentario}")
+    public ResponseEntity<Object> deleteComentario(@PathVariable(value = "id_comentario") Long id){
         Optional<ComentarioModel> ComentModelOptional = comentarioService.findById(id);
         comentarioService.delete(ComentModelOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Comentario deletado.");
     }
 
+    @GetMapping("{id}/comentario")
+    public ResponseEntity<List<ComentarioModel>> listarComentarios(){
+        return ResponseEntity.status(HttpStatus.OK).body(comentarioService.findAll());
+    }
 
     @GetMapping
     public ResponseEntity<List<ProblemaModel>> listarProblemas(){

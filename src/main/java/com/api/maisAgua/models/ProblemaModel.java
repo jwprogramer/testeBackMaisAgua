@@ -38,7 +38,7 @@ public class ProblemaModel implements Serializable {
    private List<ComentarioModel>listaComentarios;
 
    @OneToMany()
-   @JoinColumn(name = "id_foto", nullable = true)
+   @JoinColumn(name = "id_foto")
    private List<FotosModel> listaFotos;
 
     public Long getId_problema() {
