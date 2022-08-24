@@ -2,6 +2,7 @@ package com.api.maisAgua.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Optional;
 
 @Entity(name ="tb_comentario")
 public class ComentarioModel implements Serializable {
@@ -57,4 +58,5 @@ public class ComentarioModel implements Serializable {
     public void setToken_comentario(String token_comentario) {
         this.token_comentario = token_comentario;
     }
+
 }

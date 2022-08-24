@@ -58,8 +58,8 @@ public class BoletimController {
         }
         var boletimModel = new BoletimModel();
         boletimModel.setId_boletim(boletimModelOptional.get().getId_boletim());
-        BeanUtils.copyProperties(boletimDto, boletimModelOptional);
-        return ResponseEntity.status(HttpStatus.OK).body("Boletim atualizado");
+        BeanUtils.copyProperties(boletimDto, boletimModel);
+        return ResponseEntity.status(HttpStatus.OK).body(boletimService.save(boletimModel));
     }
 
 }

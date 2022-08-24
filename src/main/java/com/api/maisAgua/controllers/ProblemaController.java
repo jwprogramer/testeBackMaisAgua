@@ -37,16 +37,17 @@ public class ProblemaController {
 
 
     @PostMapping
-    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto, @ModelAttribute FotosModel fotosModel, MultipartFile fotos){
+    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto){
         var problemaModel = new ProblemaModel();
         BeanUtils.copyProperties(problemaDto, problemaModel);
-        //fotosService.savePhoto(fotosModel,fotos.getContentType());
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
 
     @PostMapping("{id}/comentario")
     public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioDto comentarioDto, @PathVariable(value = "id") Long id){
         var comentarioModel = new ComentarioModel();
+        var problemaModel = new ProblemaModel();
+        comentarioModel.setProblemaModel(problemaModel);
         BeanUtils.copyProperties(comentarioDto, comentarioModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(comentarioService.save(comentarioModel));
     }
