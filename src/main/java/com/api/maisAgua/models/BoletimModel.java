@@ -13,6 +13,9 @@ public class BoletimModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_boletim;
+
+    @Column(nullable = false)
+    private String token_boletim;
     @Column(nullable = false)
     private String tipoProblema_boletim;
     @Column(nullable = false)
@@ -28,6 +31,14 @@ public class BoletimModel implements Serializable {
 
     public void setId_boletim(Long id) {
         this.id_boletim = id;
+    }
+
+    public String getToken_boletim() {
+        return token_boletim;
+    }
+
+    public void setToken_boletim(String token_boletim) {
+        this.token_boletim = token_boletim;
     }
     public String getTipoProblema_boletim() {
         return tipoProblema_boletim;

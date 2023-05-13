@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 
 public class BoletimDto {
 
+    //@NotBlank
+    private String token_boletim;
     @NotBlank
     private String tipoProblema_boletim;
     @NotNull
@@ -20,6 +22,14 @@ public class BoletimDto {
 
     public void setTipoProblema_boletim(String tipoProblema_boletim) {
         this.tipoProblema_boletim = tipoProblema_boletim;
+    }
+
+    public String getToken_boletim() {
+        return token_boletim;
+    }
+
+    public void setToken_boletim(String token_boletim) {
+        this.token_boletim = token_boletim;
     }
 
     public String getDesc_boletim() {
