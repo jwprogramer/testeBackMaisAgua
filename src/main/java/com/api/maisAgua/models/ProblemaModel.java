@@ -25,10 +25,10 @@ public class ProblemaModel implements Serializable {
    private String tipo_problema;
 
    @Column(nullable = false)
-   private String latitude_problema;
+   private float latitude_problema;
 
    @Column(nullable = false)
-   private String longitude_problema;
+   private float longitude_problema;
 
    @Column(nullable = false)
    private String desc_problema;
@@ -56,19 +56,19 @@ public class ProblemaModel implements Serializable {
         this.tipo_problema = tipoProblema;
     }
 
-    public String getLatitude_problema() {
+    public float getLatitude_problema() {
         return latitude_problema;
     }
 
-    public void setLatitude_problema(String lat) {
+    public void setLatitude_problema(float lat) {
         this.latitude_problema = lat;
     }
 
-    public String getLongitude_problema() {
+    public float getLongitude_problema() {
         return longitude_problema;
     }
 
-    public void setLongitude_problema(String longi) {
+    public void setLongitude_problema(float longi) {
         this.longitude_problema = longi;
     }
 

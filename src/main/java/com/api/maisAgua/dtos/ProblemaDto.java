@@ -12,9 +12,9 @@ public class ProblemaDto {
     @NotBlank
     private String tipo_problema;
     @NotBlank
-    private String latitude_problema;
+    private float latitude_problema;
     @NotBlank
-    private String longitude_problema;
+    private float longitude_problema;
     @NotBlank
     private String desc_problema;
 
@@ -52,19 +52,19 @@ public class ProblemaDto {
     }
 
 
-    public String getLatitude_problema() {
+    public float getLatitude_problema() {
         return latitude_problema;
     }
 
-    public void setLatitude_problema(String latitude_problema) {
+    public void setLatitude_problema(float latitude_problema) {
         this.latitude_problema = latitude_problema;
     }
 
-    public String getLongitude_problema() {
+    public float getLongitude_problema() {
         return longitude_problema;
     }
 
-    public void setLongitude_problema(String longitude_problema) {
+    public void setLongitude_problema(float longitude_problema) {
         this.longitude_problema = longitude_problema;
     }
 }

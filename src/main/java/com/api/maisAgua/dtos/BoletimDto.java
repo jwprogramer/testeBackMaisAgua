@@ -10,9 +10,9 @@ public class BoletimDto {
     @NotBlank
     private String tipoProblema_boletim;
     @NotNull
-    private int latitude_boletim;
+    private float latitude_boletim;
     @NotNull
-    private int longitude_boletim;
+    private float longitude_boletim;
     @NotBlank
     private String desc_boletim;
 
@@ -40,19 +40,19 @@ public class BoletimDto {
         this.desc_boletim = desc_boletim;
     }
 
-    public int getLongitude_boletim() {
+    public float getLongitude_boletim() {
         return longitude_boletim;
     }
 
-    public void setLongitude_boletim(int longitude_boletim) {
+    public void setLongitude_boletim(float longitude_boletim) {
         this.longitude_boletim = longitude_boletim;
     }
 
-    public int getLatitude_boletim() {
+    public float getLatitude_boletim() {
         return latitude_boletim;
     }
 
-    public void setLatitude_boletim(int latitude_boletim) {
+    public void setLatitude_boletim(float latitude_boletim) {
         this.latitude_boletim = latitude_boletim;
     }
 }
