@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 
 public class BoletimDto {
 
-    //@NotBlank
+    @NotBlank
     private String token_boletim;
     @NotBlank
     private String tipoProblema_boletim;

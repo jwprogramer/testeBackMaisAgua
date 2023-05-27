@@ -1,8 +1,5 @@
 package com.api.maisAgua.services;
 
-import com.api.maisAgua.models.ComentarioModel;
-import com.api.maisAgua.models.ProblemaModel;
-import com.api.maisAgua.repositories.ComentarioRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

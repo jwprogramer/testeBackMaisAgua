@@ -24,6 +24,16 @@ public class BoletimModel implements Serializable {
     private float longitude_boletim;
     @Column(nullable = false)
     private String desc_boletim;
+    @Column(nullable = false)
+    private int previsao_boletim;
+
+    public int getPrevisao_boletim() {
+        return previsao_boletim;
+    }
+
+    public void setPrevisao_boletim(int previsao_boletim) {
+        this.previsao_boletim = previsao_boletim;
+    }
 
     public Long getId_boletim() {
         return id_boletim;

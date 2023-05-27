@@ -1,10 +1,7 @@
 package com.api.maisAgua.controllers;
 
 
-import com.api.maisAgua.dtos.ComentarioDto;
 import com.api.maisAgua.dtos.ProblemaDto;
-import com.api.maisAgua.models.ComentarioModel;
-import com.api.maisAgua.models.FotosModel;
 import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.ComentarioService;
 import com.api.maisAgua.services.FotosService;
@@ -13,7 +10,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -27,12 +23,10 @@ public class ProblemaController {
 
     final ProblemaService problemaService;
     final FotosService fotosService;
-    final ComentarioService comentarioService;
 
     public ProblemaController(ProblemaService problemaService, FotosService fotosService, ComentarioService comentarioService) {
         this.problemaService = problemaService;
         this.fotosService = fotosService;
-        this.comentarioService = comentarioService;
     }
 
 
@@ -41,26 +35,6 @@ public class ProblemaController {
         var problemaModel = new ProblemaModel();
         BeanUtils.copyProperties(problemaDto, problemaModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
-    }
-
-    @PostMapping("{id}/comentario")
-    public ResponseEntity<Object> cadastrarComentario(@RequestBody @Valid ComentarioDto comentarioDto, @PathVariable(value = "id") Long id){
-        var comentarioModel = new ComentarioModel();
-        var problemaModel = new ProblemaModel();
-        comentarioModel.setProblemaModel(problemaModel);
-        BeanUtils.copyProperties(comentarioDto, comentarioModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(comentarioService.save(comentarioModel));
-    }
-    @DeleteMapping("{id}/comentario/{id_comentario}")
-    public ResponseEntity<Object> deleteComentario(@PathVariable(value = "id_comentario") Long id){
-        Optional<ComentarioModel> ComentModelOptional = comentarioService.findById(id);
-        comentarioService.delete(ComentModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Comentario deletado.");
-    }
-
-    @GetMapping("{id}/comentario")
-    public ResponseEntity<List<ComentarioModel>> listarComentarios(){
-        return ResponseEntity.status(HttpStatus.OK).body(comentarioService.findAll());
     }
 
     @GetMapping

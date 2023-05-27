@@ -3,6 +3,7 @@ package com.api.maisAgua.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -33,9 +34,16 @@ public class ProblemaModel implements Serializable {
    @Column(nullable = false)
    private String desc_problema;
 
-   @OneToMany()
-   @JoinColumn(name = "id_comentario", nullable = false)
-   private List<ComentarioModel>listaComentarios;
+    public Date getDatahora_problema() {
+        return datahora_problema;
+    }
+
+    public void setDatahora_problema(Date datahora_problema) {
+        this.datahora_problema = datahora_problema;
+    }
+
+    @Column(nullable = false)
+   private Date datahora_problema;
 
    @OneToMany()
    @JoinColumn(name = "id_foto")
