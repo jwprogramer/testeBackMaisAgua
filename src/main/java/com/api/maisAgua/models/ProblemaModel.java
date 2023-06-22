@@ -34,6 +34,10 @@ public class ProblemaModel implements Serializable {
    @Column(nullable = false)
    private String desc_problema;
 
+   //@Column(nullable = false)
+   private Date datahora_problema;
+
+
     public Date getDatahora_problema() {
         return datahora_problema;
     }
@@ -42,8 +46,7 @@ public class ProblemaModel implements Serializable {
         this.datahora_problema = datahora_problema;
     }
 
-    @Column(nullable = false)
-   private Date datahora_problema;
+
 
    @OneToMany()
    @JoinColumn(name = "id_foto")

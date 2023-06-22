@@ -49,6 +49,15 @@ public class BoletimController {
         return ResponseEntity.status(HttpStatus.OK).body(boletimService.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> buscarBoletim(@PathVariable(value = "id") Long id){
+        Optional<BoletimModel> boletimModelOptional = boletimService.findById(id);
+        if (!boletimModelOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Boletim não encontrado.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(boletimModelOptional.get());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizarBoletim(@PathVariable(value = "id") Long id,
                                                     @RequestBody @Valid BoletimDto boletimDto){

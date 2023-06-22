@@ -3,7 +3,6 @@ package com.api.maisAgua.controllers;
 
 import com.api.maisAgua.dtos.ProblemaDto;
 import com.api.maisAgua.models.ProblemaModel;
-import com.api.maisAgua.services.ComentarioService;
 import com.api.maisAgua.services.FotosService;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
@@ -24,7 +23,7 @@ public class ProblemaController {
     final ProblemaService problemaService;
     final FotosService fotosService;
 
-    public ProblemaController(ProblemaService problemaService, FotosService fotosService, ComentarioService comentarioService) {
+    public ProblemaController(ProblemaService problemaService, FotosService fotosService) {
         this.problemaService = problemaService;
         this.fotosService = fotosService;
     }
