@@ -6,15 +6,22 @@ import javax.validation.constraints.NotNull;
 public class ProblemaDto {
 
     @NotBlank
-    private String token_problema;
-    @NotNull(message = "Por favor, insira o Status")
-    private Boolean status_problema;
+    private String token_user;
     @NotBlank
     private String tipo_problema;
+
     @NotBlank
-    private float latitude_problema;
+    private String logradouro_problema;
+
     @NotBlank
-    private float longitude_problema;
+    private String numero_rua_problema;
+    @NotBlank
+    private String bairro_problema;
+    @NotBlank
+    private String cidade_problema;
+    @NotBlank
+    private String cep_problema;
+
     @NotBlank
     private String desc_problema;
 
@@ -35,36 +42,51 @@ public class ProblemaDto {
         this.desc_problema = desc_problema;
     }
 
-    public String getToken_problema() {
-        return token_problema;
+    public String getToken_user() {
+        return token_user;
     }
 
-    public void setToken_problema(String token_problema) {
-        this.token_problema = token_problema;
+    public void setToken_user(String token_user) {
+        this.token_user = token_user;
     }
 
-    public Boolean getStatus_problema() {
-        return status_problema;
+    public String getLogradouro_problema() {
+        return logradouro_problema;
     }
 
-    public void setStatus_problema(Boolean status_problema) {
-        this.status_problema = status_problema;
+    public void setLogradouro_problema(String logradouro_problema) {
+        this.logradouro_problema = logradouro_problema;
     }
 
-
-    public float getLatitude_problema() {
-        return latitude_problema;
+    public String getNumero_rua_problema() {
+        return numero_rua_problema;
     }
 
-    public void setLatitude_problema(float latitude_problema) {
-        this.latitude_problema = latitude_problema;
+    public void setNumero_rua_problema(String numero_rua_problema) {
+        this.numero_rua_problema = numero_rua_problema;
     }
 
-    public float getLongitude_problema() {
-        return longitude_problema;
+    public String getBairro_problema() {
+        return bairro_problema;
     }
 
-    public void setLongitude_problema(float longitude_problema) {
-        this.longitude_problema = longitude_problema;
+    public void setBairro_problema(String bairro_problema) {
+        this.bairro_problema = bairro_problema;
+    }
+
+    public String getCidade_problema() {
+        return cidade_problema;
+    }
+
+    public void setCidade_problema(String cidade_problema) {
+        this.cidade_problema = cidade_problema;
+    }
+
+    public String getCep_problema() {
+        return cep_problema;
+    }
+
+    public void setCep_problema(String cep_problema) {
+        this.cep_problema = cep_problema;
     }
 }
