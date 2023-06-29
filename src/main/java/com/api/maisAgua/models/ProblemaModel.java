@@ -31,9 +31,11 @@ public class ProblemaModel implements Serializable {
     @Column(nullable = false)
     private String bairro_problema;
 
-
     @Column(nullable = false)
     private String cidade_problema;
+
+    @Column(nullable = false)
+    private String estado_problema;
 
     @Column(nullable = false)
     private String cep_problema;
@@ -101,6 +103,14 @@ public class ProblemaModel implements Serializable {
 
     public void setCidade_problema(String cidade_problema) {
         this.cidade_problema = cidade_problema;
+    }
+
+    public String getEstado_problema() {
+        return estado_problema;
+    }
+
+    public void setEstado_problema(String estado_problema) {
+        this.estado_problema = estado_problema;
     }
 
     public String getCep_problema() {

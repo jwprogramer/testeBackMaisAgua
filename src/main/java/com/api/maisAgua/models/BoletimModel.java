@@ -32,13 +32,15 @@ public class BoletimModel implements Serializable {
     private String cidade_boletim;
 
     @Column(nullable = false)
+    private String estado_boletim;
+    @Column(nullable = false)
     private String cep_boletim;
     @Column(nullable = false)
     private String desc_boletim;
     @Column(nullable = false)
-    private int previsao_boletim;
+    private float previsao_boletim;
 
-    public int getPrevisao_boletim() {
+    public float getPrevisao_boletim() {
         return previsao_boletim;
     }
 
@@ -88,6 +90,14 @@ public class BoletimModel implements Serializable {
 
     public void setCidade_boletim(String cidade_boletim) {
         this.cidade_boletim = cidade_boletim;
+    }
+
+    public String getEstado_boletim() {
+        return estado_boletim;
+    }
+
+    public void setEstado_boletim(String estado_boletim) {
+        this.estado_boletim = estado_boletim;
     }
 
     public String getCep_boletim() {

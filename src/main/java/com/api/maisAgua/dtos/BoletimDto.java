@@ -16,11 +16,17 @@ public class BoletimDto {
     private String bairro_boletim;
     @NotBlank
     private String cidade_boletim;
+
+    @NotBlank
+    private String estado_boletim;
     @NotBlank
     private String cep_boletim;
 
     @NotBlank
     private String desc_boletim;
+
+    @NotBlank
+    private float previsao_boletim;
 
     public String getTipoProblema_boletim() {
         return tipoProblema_boletim;
@@ -30,6 +36,13 @@ public class BoletimDto {
         this.tipoProblema_boletim = tipoProblema_boletim;
     }
 
+    public float getPrevisao_boletim() {
+        return previsao_boletim;
+    }
+
+    public void setPrevisao_boletim(float previsao_boletim) {
+        this.previsao_boletim = previsao_boletim;
+    }
 
     public String getDesc_boletim() {
         return desc_boletim;
@@ -66,6 +79,14 @@ public class BoletimDto {
 
     public String getCidade_boletim() {
         return cidade_boletim;
+    }
+
+    public String getEstado_boletim() {
+        return estado_boletim;
+    }
+
+    public void setEstado_boletim(String estado_boletim) {
+        this.estado_boletim = estado_boletim;
     }
 
     public void setCidade_boletim(String cidade_boletim) {

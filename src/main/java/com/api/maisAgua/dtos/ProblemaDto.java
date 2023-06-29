@@ -19,6 +19,9 @@ public class ProblemaDto {
     private String bairro_problema;
     @NotBlank
     private String cidade_problema;
+
+    @NotBlank
+    private String estado_problema;
     @NotBlank
     private String cep_problema;
 
@@ -76,6 +79,14 @@ public class ProblemaDto {
 
     public String getCidade_problema() {
         return cidade_problema;
+    }
+
+    public String getEstado_problema() {
+        return estado_problema;
+    }
+
+    public void setEstado_problema(String estado_problema) {
+        this.estado_problema = estado_problema;
     }
 
     public void setCidade_problema(String cidade_problema) {
