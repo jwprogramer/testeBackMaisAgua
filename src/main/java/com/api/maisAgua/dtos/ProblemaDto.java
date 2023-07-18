@@ -1,32 +1,33 @@
 package com.api.maisAgua.dtos;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 public class ProblemaDto {
-
-    @NotBlank
-    private String token_user;
-    @NotBlank
+    private String token_user_problema;
     private String tipo_problema;
-
-    @NotBlank
     private String logradouro_problema;
-
-    @NotBlank
     private String numero_rua_problema;
-    @NotBlank
     private String bairro_problema;
-    @NotBlank
     private String cidade_problema;
-
-    @NotBlank
     private String estado_problema;
-    @NotBlank
     private String cep_problema;
-
-    @NotBlank
     private String desc_problema;
+
+    private String foto;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getToken_user_problema() {
+        return token_user_problema;
+    }
+
+    public void setToken_user_problema(String token_user_problema) {
+        this.token_user_problema = token_user_problema;
+    }
 
     public String getTipo_problema() {
         return tipo_problema;
@@ -34,23 +35,6 @@ public class ProblemaDto {
 
     public void setTipo_problema(String tipo_problema) {
         this.tipo_problema = tipo_problema;
-    }
-
-
-    public String getDesc_problema() {
-        return desc_problema;
-    }
-
-    public void setDesc_problema(String desc_problema) {
-        this.desc_problema = desc_problema;
-    }
-
-    public String getToken_user() {
-        return token_user;
-    }
-
-    public void setToken_user(String token_user) {
-        this.token_user = token_user;
     }
 
     public String getLogradouro_problema() {
@@ -81,16 +65,16 @@ public class ProblemaDto {
         return cidade_problema;
     }
 
+    public void setCidade_problema(String cidade_problema) {
+        this.cidade_problema = cidade_problema;
+    }
+
     public String getEstado_problema() {
         return estado_problema;
     }
 
     public void setEstado_problema(String estado_problema) {
         this.estado_problema = estado_problema;
-    }
-
-    public void setCidade_problema(String cidade_problema) {
-        this.cidade_problema = cidade_problema;
     }
 
     public String getCep_problema() {
@@ -100,4 +84,13 @@ public class ProblemaDto {
     public void setCep_problema(String cep_problema) {
         this.cep_problema = cep_problema;
     }
+
+    public String getDesc_problema() {
+        return desc_problema;
+    }
+
+    public void setDesc_problema(String desc_problema) {
+        this.desc_problema = desc_problema;
+    }
+
 }

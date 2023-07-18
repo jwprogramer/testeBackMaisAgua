@@ -1,23 +1,28 @@
 package com.api.maisAgua.models;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_problema")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProblemaModel implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_problema")
     private Long id_problema;
 
     @Column(nullable = false)
-    private String token_user;
+    private String token_user_problema;
 
     @Column(nullable = false)
     private String tipo_problema;
@@ -43,9 +48,16 @@ public class ProblemaModel implements Serializable {
     @Column(nullable = false)
     private String desc_problema;
 
-    @OneToMany()
-    @JoinColumn(name = "id_foto")
-    private List<FotosModel> listaFotos;
+    @Column
+    private String foto;
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
 
     public Long getId_problema() {
         return id_problema;
@@ -55,8 +67,28 @@ public class ProblemaModel implements Serializable {
         this.id_problema = id_problema;
     }
 
+    public String getToken_user_problema() {
+        return token_user_problema;
+    }
+
+    public void setToken_user_problema(String token_user_problema) {
+        this.token_user_problema = token_user_problema;
+    }
+
     public String getTipo_problema() {
         return tipo_problema;
+    }
+
+    public void setTipo_problema(String tipo_problema) {
+        this.tipo_problema = tipo_problema;
+    }
+
+    public String getLogradouro_problema() {
+        return logradouro_problema;
+    }
+
+    public void setLogradouro_problema(String logradouro_problema) {
+        this.logradouro_problema = logradouro_problema;
     }
 
     public String getNumero_rua_problema() {
@@ -65,15 +97,6 @@ public class ProblemaModel implements Serializable {
 
     public void setNumero_rua_problema(String numero_rua_problema) {
         this.numero_rua_problema = numero_rua_problema;
-    }
-
-
-    public String getLogradouro_problema() {
-        return logradouro_problema;
-    }
-
-    public void setLogradouro_problema(String logradouro_problema) {
-        this.logradouro_problema = logradouro_problema;
     }
 
     public String getBairro_problema() {
@@ -108,24 +131,12 @@ public class ProblemaModel implements Serializable {
         this.cep_problema = cep_problema;
     }
 
-    public void setTipo_problema(String tipoProblema) {
-        this.tipo_problema = tipoProblema;
-    }
-
     public String getDesc_problema() {
         return desc_problema;
     }
 
-    public void setDesc_problema(String descricao) {
-        this.desc_problema = descricao;
-    }
-
-    public String getToken_user() {
-        return token_user;
-    }
-
-    public void setToken_user(String tokenn) {
-        this.token_user = tokenn;
+    public void setDesc_problema(String desc_problema) {
+        this.desc_problema = desc_problema;
     }
 
 }

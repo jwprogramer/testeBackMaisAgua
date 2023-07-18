@@ -3,7 +3,6 @@ package com.api.maisAgua.controllers;
 
 import com.api.maisAgua.dtos.ProblemaDto;
 import com.api.maisAgua.models.ProblemaModel;
-import com.api.maisAgua.services.FotosService;
 import com.api.maisAgua.services.ProblemaService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -20,29 +19,29 @@ import java.util.Optional;
 @RequestMapping("/problema")
 public class ProblemaController {
 
-    final ProblemaService problemaService;
-    final FotosService fotosService;
+    private final ProblemaService problemaService;
 
-    public ProblemaController(ProblemaService problemaService, FotosService fotosService) {
+
+    public ProblemaController(ProblemaService problemaService) {
         this.problemaService = problemaService;
-        this.fotosService = fotosService;
     }
 
-
     @PostMapping
-    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto){
-        var problemaModel = new ProblemaModel();
+    public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto) {
+
+        // Criar um objeto ProblemaModel e preencher os dados
+        ProblemaModel problemaModel = new ProblemaModel();
         BeanUtils.copyProperties(problemaDto, problemaModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
 
     @GetMapping
-    public ResponseEntity<List<ProblemaModel>> listarProblemas(){
+    public ResponseEntity<List<ProblemaModel>> listarProblemas() {
         return ResponseEntity.status(HttpStatus.OK).body(problemaService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> buscarProblema(@PathVariable(value = "id") Long id){
+    public ResponseEntity<Object> buscarProblema(@PathVariable Long id) {
         Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);
         if (!problemaModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");
@@ -51,7 +50,7 @@ public class ProblemaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteProblema(@PathVariable(value = "id") Long id){
+    public ResponseEntity<Object> deleteProblema(@PathVariable Long id) {
         Optional<ProblemaModel> parkingSpotModelOptional = problemaService.findById(id);
         if (!parkingSpotModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");
@@ -61,14 +60,12 @@ public class ProblemaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> atualizarProblema(@PathVariable(value = "id") Long id,
-                                                    @RequestBody @Valid ProblemaDto problemaDto){
+    public ResponseEntity<Object> atualizarProblema(@PathVariable Long id, @RequestBody @Valid ProblemaDto problemaDto) {
         Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);
         if (!problemaModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Problema não encontrado.");
         }
-        var problemaModel = new ProblemaModel();
-        problemaModel.setId_problema(problemaModelOptional.get().getId_problema());
+        ProblemaModel problemaModel = problemaModelOptional.get();
         BeanUtils.copyProperties(problemaDto, problemaModel);
         return ResponseEntity.status(HttpStatus.OK).body(problemaService.save(problemaModel));
     }
