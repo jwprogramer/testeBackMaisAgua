@@ -15,12 +15,10 @@ public class BoletimModel implements Serializable {
     private Long id_boletim;
 
     @Column(nullable = false)
-    private String token_user;
-    @Column(nullable = false)
-    private String tipoProblema_boletim;
+    private String token_user_boletim;
 
     @Column(nullable = false)
-    private String tipo_boletim;
+    private String tipo_problema_boletim;
 
     @Column(nullable = false)
     private String logradouro_boletim;
@@ -38,13 +36,13 @@ public class BoletimModel implements Serializable {
     @Column(nullable = false)
     private String desc_boletim;
     @Column(nullable = false)
-    private float previsao_boletim;
+    private String previsao_boletim;
 
-    public float getPrevisao_boletim() {
+    public String getPrevisao_boletim() {
         return previsao_boletim;
     }
 
-    public void setPrevisao_boletim(int previsao_boletim) {
+    public void setPrevisao_boletim(String previsao_boletim) {
         this.previsao_boletim = previsao_boletim;
     }
 
@@ -56,16 +54,8 @@ public class BoletimModel implements Serializable {
         this.id_boletim = id;
     }
 
-    public String getToken_user() {
-        return token_user;
-    }
-
-    public String getTipo_boletim() {
-        return tipo_boletim;
-    }
-
-    public void setTipo_boletim(String tipo_boletim) {
-        this.tipo_boletim = tipo_boletim;
+    public String getToken_user_boletim() {
+        return token_user_boletim;
     }
 
     public String getLogradouro_boletim() {
@@ -108,15 +98,15 @@ public class BoletimModel implements Serializable {
         this.cep_boletim = cep_boletim;
     }
 
-    public void setToken_user(String token_user) {
-        this.token_user = token_user;
+    public void setToken_user_boletim(String token_user_boletim) {
+        this.token_user_boletim = token_user_boletim;
     }
-    public String getTipoProblema_boletim() {
-        return tipoProblema_boletim;
+    public String getTipo_problema_boletim() {
+        return tipo_problema_boletim;
     }
 
-    public void setTipoProblema_boletim(String tipo) {
-        this.tipoProblema_boletim = tipo;
+    public void setTipo_problema_boletim(String tipo) {
+        this.tipo_problema_boletim = tipo;
     }
 
     public String getDesc_boletim() {
