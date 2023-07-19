@@ -1,14 +1,13 @@
 package com.api.maisAgua.dtos;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 public class BoletimDto {
 
     @NotBlank
-    private String token_user;
+    private String token_user_boletim;
     @NotBlank
-    private String tipoProblema_boletim;
+    private String tipo_problema_boletim;
     @NotBlank
     private String logradouro_boletim;
 
@@ -26,21 +25,21 @@ public class BoletimDto {
     private String desc_boletim;
 
     @NotBlank
-    private float previsao_boletim;
+    private String previsao_boletim;
 
-    public String getTipoProblema_boletim() {
-        return tipoProblema_boletim;
+    public String getTipo_problema_boletim() {
+        return tipo_problema_boletim;
     }
 
-    public void setTipoProblema_boletim(String tipoProblema_boletim) {
-        this.tipoProblema_boletim = tipoProblema_boletim;
+    public void setTipo_problema_boletim(String tipo_problema_boletim) {
+        this.tipo_problema_boletim = tipo_problema_boletim;
     }
 
-    public float getPrevisao_boletim() {
+    public String getPrevisao_boletim() {
         return previsao_boletim;
     }
 
-    public void setPrevisao_boletim(float previsao_boletim) {
+    public void setPrevisao_boletim(String previsao_boletim) {
         this.previsao_boletim = previsao_boletim;
     }
 
@@ -52,12 +51,12 @@ public class BoletimDto {
         this.desc_boletim = desc_boletim;
     }
 
-    public String getToken_user() {
-        return token_user;
+    public String getToken_user_boletim() {
+        return token_user_boletim;
     }
 
-    public void setToken_user(String token_user) {
-        this.token_user = token_user;
+    public void setToken_user_boletim(String token_user_boletim) {
+        this.token_user_boletim = token_user_boletim;
     }
 
     public String getLogradouro_boletim() {

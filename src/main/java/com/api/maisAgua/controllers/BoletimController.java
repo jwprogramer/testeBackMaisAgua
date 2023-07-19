@@ -3,7 +3,6 @@ package com.api.maisAgua.controllers;
 
 import com.api.maisAgua.dtos.BoletimDto;
 import com.api.maisAgua.models.BoletimModel;
-import com.api.maisAgua.models.ProblemaModel;
 import com.api.maisAgua.services.BoletimService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

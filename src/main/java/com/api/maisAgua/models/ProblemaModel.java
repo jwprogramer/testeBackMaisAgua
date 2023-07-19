@@ -48,7 +48,7 @@ public class ProblemaModel implements Serializable {
     @Column(nullable = false)
     private String desc_problema;
 
-    @Column
+    @Column(nullable = false, length=10000000)
     private String foto;
 
     public String getFoto() {
