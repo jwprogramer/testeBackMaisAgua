@@ -16,6 +16,7 @@ public class BoletimModel implements Serializable {
 
     @Column(nullable = false)
     private String token_user_boletim;
+
     @Column(nullable = false)
     private String tipo_problema_boletim;
 
@@ -37,7 +38,6 @@ public class BoletimModel implements Serializable {
 
     @Column(nullable = false)
     private String previsao_boletim;
-
 
     public String getPrevisao_boletim() {
         return previsao_boletim;

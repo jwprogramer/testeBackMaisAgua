@@ -1,16 +1,27 @@
 package com.api.maisAgua.dtos;
 
-public class ProblemaDto {
-    private String token_user_problema;
-    private String tipo_problema;
-    private String logradouro_problema;
-    private String numero_rua_problema;
-    private String bairro_problema;
-    private String cidade_problema;
-    private String estado_problema;
-    private String cep_problema;
-    private String desc_problema;
+import javax.validation.constraints.NotBlank;
 
+public class ProblemaDto {
+    @NotBlank
+    private String token_user_problema;
+    @NotBlank
+    private String tipo_problema;
+    @NotBlank
+    private String logradouro_problema;
+    @NotBlank
+    private String numero_rua_problema;
+    @NotBlank
+    private String bairro_problema;
+    @NotBlank
+    private String cidade_problema;
+    @NotBlank
+    private String estado_problema;
+    @NotBlank
+    private String cep_problema;
+    @NotBlank
+    private String desc_problema;
+    @NotBlank
     private String foto;
 
     public String getFoto() {
