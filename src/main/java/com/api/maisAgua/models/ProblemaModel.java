@@ -25,6 +25,9 @@ public class ProblemaModel implements Serializable {
     private String token_user_problema;
 
     @Column(nullable = false)
+    private String nome_user_problema;
+
+    @Column(nullable = false)
     private String tipo_problema;
 
     @Column(nullable = false)
@@ -51,6 +54,9 @@ public class ProblemaModel implements Serializable {
     @Column(nullable = false, length = 10000000 )
     private String foto;
 
+    public String getNome_user_problema() { return nome_user_problema; }
+
+    public void setNome_user_problema(String nome_user_problema) { this.nome_user_problema = nome_user_problema; }
     public String getFoto() {
         return foto;
     }

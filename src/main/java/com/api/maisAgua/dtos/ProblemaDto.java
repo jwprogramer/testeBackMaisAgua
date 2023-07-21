@@ -6,6 +6,8 @@ public class ProblemaDto {
     @NotBlank
     private String token_user_problema;
     @NotBlank
+    private String nome_user_problema;
+    @NotBlank
     private String tipo_problema;
     @NotBlank
     private String logradouro_problema;
@@ -24,6 +26,9 @@ public class ProblemaDto {
     @NotBlank
     private String foto;
 
+    public String getNome_user_problema() { return nome_user_problema; }
+
+    public void setNome_user_problema(String nome_user_problema) { this.nome_user_problema = nome_user_problema; }
     public String getFoto() {
         return foto;
     }

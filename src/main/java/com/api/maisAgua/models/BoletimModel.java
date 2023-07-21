@@ -18,6 +18,9 @@ public class BoletimModel implements Serializable {
     private String token_user_boletim;
 
     @Column(nullable = false)
+    private String nome_user_boletim;
+
+    @Column(nullable = false)
     private String tipo_problema_boletim;
 
     @Column(nullable = false)
@@ -38,6 +41,10 @@ public class BoletimModel implements Serializable {
 
     @Column(nullable = false)
     private String previsao_boletim;
+
+    public String getNome_user_boletim() { return nome_user_boletim; }
+
+    public void setNome_user_boletim(String nome_user_boletim) { this.nome_user_boletim = nome_user_boletim; }
 
     public String getPrevisao_boletim() {
         return previsao_boletim;

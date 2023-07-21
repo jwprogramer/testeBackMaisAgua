@@ -7,6 +7,8 @@ public class BoletimDto {
     @NotBlank
     private String token_user_boletim;
     @NotBlank
+    private String nome_user_boletim;
+    @NotBlank
     private String tipo_problema_boletim;
     @NotBlank
     private String logradouro_boletim;
@@ -27,13 +29,14 @@ public class BoletimDto {
     @NotBlank
     private String previsao_boletim;
 
+    public String getNome_user_boletim() { return nome_user_boletim; }
+
+    public void setNome_user_boletim(String nome_user_boletim) { this.nome_user_boletim = nome_user_boletim; }
     public String getTipo_problema_boletim() {
         return tipo_problema_boletim;
     }
 
-    public void setTipo_problema_boletim(String tipo_problema_boletim) {
-        this.tipo_problema_boletim = tipo_problema_boletim;
-    }
+    public void setTipo_problema_boletim(String tipo_problema_boletim) { this.tipo_problema_boletim = tipo_problema_boletim; }
 
     public String getPrevisao_boletim() {
         return previsao_boletim;
