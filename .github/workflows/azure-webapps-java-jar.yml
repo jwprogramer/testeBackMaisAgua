@@ -71,6 +71,7 @@ jobs:
           name: maisagua-0.0.1-SNAPSHOT.jar  # Nome do artefato
           path: .\libs
 
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
