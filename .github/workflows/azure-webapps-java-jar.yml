@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: maisagua-0.0.1-SNAPSHOT
-          path: '${{ github.workspace }}/testeBackMaisAgua/target/*.jar'
+          path: '${{ github.workspace }}/target/*.jar'
 
 
   deploy:
