@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: maisagua-0.0.1-SNAPSHOT
-          path: '/home/runner/work/testeBackMaisAgua//target/*.jar'
+          path: '/home/runner/work/testeBackMaisAgua/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
