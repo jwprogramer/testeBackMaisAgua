@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up Java version
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: '17'
 
@@ -44,15 +44,15 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-            node-version: '16'
+          node-version: '16'
 
       - name: Build with Gradle
         run: ./gradlew build
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: maisagua-0.0.1-SNAPSHOT
           path: '/home/runner/work/testeBackMaisAgua/target/*.jar'
@@ -62,21 +62,21 @@ jobs:
     needs: build
     environment:
       name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: ${{ steps.build.outputs.artifacts_path }} # Corrigido para acessar o caminho do artefato gerado pelo Gradle
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
-          name: maisagua-0.0.1-SNAPSHOT.jar  # Nome do artefato
+          name: maisagua-0.0.1-SNAPSHOT
           path: 'build/libs'
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v1
+        uses: azure/webapps-deploy@v2
         with:
           app-name: 'back123'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_1234 }}
-          package: 'target/*.jar'
+          package: 'build/libs/maisagua-0.0.1-SNAPSHOT.jar' # Corrigido para apontar para o caminho correto do JAR gerado pelo Gradle
 
