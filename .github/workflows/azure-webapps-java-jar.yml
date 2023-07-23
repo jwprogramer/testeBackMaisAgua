@@ -68,8 +68,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: maisagua-0.0.1-SNAPSHOT.jar  # Nome do artefato
-          path: E:\Documentos\TADS-IFRN2020.1\SISTEMAS DISTRIBUIDOS\Projeto\testeBackMaisAgua\build\libs
+          name: maisagua-0.0.1-SNAPSHOT  # Nome do artefato
+          path: '${{ github.workspace }}/target/*.jar'
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
