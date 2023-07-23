@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: maisagua-0.0.1-SNAPSHOT
-          path: /home/runner/work/testeBackMaisAgua/builds/libs/maisagua-0.0.1-SNAPSHOT.jar
+          path: testeBackMaisAgua/builds/libs/maisagua-0.0.1-SNAPSHOT.jar
 
 
   deploy:
