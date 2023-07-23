@@ -23,7 +23,6 @@ dependencies {
 	implementation 'org.projectlombok:lombok:1.18.26'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'commons-fileupload:commons-fileupload:1.4'
 }
 
 tasks.named('test') {
