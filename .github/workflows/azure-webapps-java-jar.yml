@@ -39,6 +39,8 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'adopt' # Corrigido para especificar a distribuição do Java
+
 
       - name: Grant execute permission to gradlew
         run: chmod +x ./gradlew
