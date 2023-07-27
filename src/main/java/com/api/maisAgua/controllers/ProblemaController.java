@@ -26,6 +26,7 @@ public class ProblemaController {
         this.problemaService = problemaService;
     }
 
+    //MÉTODO PARA CRIAR PROBLEMA
     @PostMapping
     public ResponseEntity<Object> cadastrarProblema(@RequestBody @Valid ProblemaDto problemaDto) {
 
@@ -35,11 +36,13 @@ public class ProblemaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(problemaService.save(problemaModel));
     }
 
+    //MÉTODO PARA PEGAR TODOS OS PROBLEMAS
     @GetMapping
     public ResponseEntity<List<ProblemaModel>> listarProblemas() {
         return ResponseEntity.status(HttpStatus.OK).body(problemaService.findAll());
     }
 
+    //MÉTODO PARA PEGAR TODOS OS PROBLEMAS
     @GetMapping("/{id}")
     public ResponseEntity<Object> buscarProblema(@PathVariable Long id) {
         Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);
@@ -49,6 +52,7 @@ public class ProblemaController {
         return ResponseEntity.status(HttpStatus.OK).body(problemaModelOptional.get());
     }
 
+    //MÉTODO PARA DELETAR PROBLEMA
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteProblema(@PathVariable Long id) {
         Optional<ProblemaModel> parkingSpotModelOptional = problemaService.findById(id);
@@ -59,6 +63,7 @@ public class ProblemaController {
         return ResponseEntity.status(HttpStatus.OK).body("Problema deletado.");
     }
 
+    //MÉTODO PARA ATUALIZAR PROBLEMA
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizarProblema(@PathVariable Long id, @RequestBody @Valid ProblemaDto problemaDto) {
         Optional<ProblemaModel> problemaModelOptional = problemaService.findById(id);

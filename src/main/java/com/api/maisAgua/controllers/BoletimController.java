@@ -25,7 +25,7 @@ public class BoletimController {
         this.boletimService = boletimService;
     }
 
-
+    //MÉTODO PARA CRIAR BOLETIM
     @PostMapping
     public ResponseEntity<Object> cadastrarBoletim(@RequestBody @Valid BoletimDto boletimDto){
         var boletimModel = new BoletimModel();
@@ -33,6 +33,7 @@ public class BoletimController {
         return ResponseEntity.status(HttpStatus.CREATED).body(boletimService.save(boletimModel));
     }
 
+    //MÉTODO PARA DELETAR BOLETIM
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteBoletim(@PathVariable(value = "id") Long id){
         Optional<BoletimModel> BoletimModelOptional = boletimService.findById(id);
@@ -43,11 +44,13 @@ public class BoletimController {
         return ResponseEntity.status(HttpStatus.OK).body("Boletim deletado.");
     }
 
+    //MÉTODO PARA PEGAR TODOS BOLETINS
     @GetMapping
     public ResponseEntity<List<BoletimModel>> listarBoletim(){
         return ResponseEntity.status(HttpStatus.OK).body(boletimService.findAll());
     }
 
+    //MÉTODO PARA PEGAR UM ÚNICO BOLETIM
     @GetMapping("/{id}")
     public ResponseEntity<Object> buscarBoletim(@PathVariable(value = "id") Long id){
         Optional<BoletimModel> boletimModelOptional = boletimService.findById(id);
@@ -57,6 +60,7 @@ public class BoletimController {
         return ResponseEntity.status(HttpStatus.OK).body(boletimModelOptional.get());
     }
 
+    //MÉTODO PARA ATUALIZAR BOLETIM
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizarBoletim(@PathVariable(value = "id") Long id,
                                                     @RequestBody @Valid BoletimDto boletimDto){
